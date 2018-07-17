@@ -2,7 +2,6 @@ pipeline {
   agent {
     docker {
       image 'retr0h/molecule:2.16'
-      args "-v env.WORKSPACE:/tmp/${JOB_BASE_NAME} -w /tmp/${JOB_BASE_NAME}"
     }
   }
 
@@ -24,7 +23,7 @@ pipeline {
     }
     stage ("Executing Molecule converge") {
       steps {
-        sh 'sudo molecule converge'
+        sh 'sudo molecule --debug converge'
       }
     }
     stage ("Executing Molecule idemotence") {
