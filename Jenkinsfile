@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage ("Create soft link to roles") {
       steps {
-        sh "env"
+        sh 'mkdir $WORKSPACE/default; ln -s $WORKSPACE $WORKSPACE/default/roles'
       }
     }
     stage ("Executing Molecule lint") {
