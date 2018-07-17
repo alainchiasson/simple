@@ -4,6 +4,11 @@ pipeline {
   }
 
   stages {
+    stage ("Store commit id") {
+      steps {
+        sh 'git rev-parse HEAD > .git/commit-id'
+      }
+    }
     stage ("Executing Molecule lint") {
       steps {
         sh 'molecule lint'
