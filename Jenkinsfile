@@ -11,27 +11,27 @@ pipeline {
     // }
     stage ("Executing Molecule lint") {
       steps {
-        sh 'molecule lint'
+        sh 'sudo molecule lint'
       }
     }
     stage ("Executing Molecule create") {
       steps {
-        sh 'molecule create'
+        sh 'sudo molecule create'
       }
     }
     stage ("Executing Molecule converge") {
       steps {
-        sh 'molecule converge'
+        sh 'sudo molecule converge'
       }
     }
     stage ("Executing Molecule idemotence") {
       steps {
-        sh 'molecule idempotence'
+        sh 'sudo molecule idempotence'
       }
     }
     stage ("Executing Molecule verify") {
       steps {
-        sh 'molecule verify'
+        sh 'sudo molecule verify'
       }
     }
   }
