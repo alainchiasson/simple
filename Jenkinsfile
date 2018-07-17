@@ -6,11 +6,11 @@ pipeline {
   }
 
   stages {
-    // stage ("Store commit id") {
-    //   steps {
-    //     sh 'git rev-parse HEAD > .git/commit-id'
-    //   }
-    // }
+    stage ("Create soft link to roles") {
+      steps {
+        sh "env"
+      }
+    }
     stage ("Executing Molecule lint") {
       steps {
         sh 'sudo molecule lint'
