@@ -8,7 +8,7 @@ lint:
 platforms:
   - name: instance
     image: centos
-    pull: True
+    pull: true
 provisioner:
   name: ansible
   lint:
