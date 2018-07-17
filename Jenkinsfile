@@ -1,6 +1,9 @@
 pipeline {
   agent {
-    docker { image 'retr0h/molecule:2.16'}
+    docker {
+      image 'retr0h/molecule:2.16'
+      args "-v ${WORKSPACE}:/tmp/${JOB_BASE_NAME} -w /tmp/${JOB_BASE_NAME}"
+    }
   }
 
   stages {
