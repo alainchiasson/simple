@@ -7,6 +7,7 @@ pipeline {
 
   environment {
     withCredentials([UsernamePassword(credentialsId: 'alainchiasson-dockerhub', usernameVariable: 'DOCKERHUBUSR', passwordVariable: 'DOCKERHUBPWD')]) {
+    }
   }
 
   stages {
