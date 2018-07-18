@@ -16,9 +16,10 @@ pipeline {
         // Jenkins check out the role into a folder with arbitrary name,
         // we need to let Ansible know where to find role
         sh 'env'
-        sh 'sudo env'
+        sh 'echo "DOCKERHUBUSR: $DOCKERHUBUSR\nDOCKERHUBPSW: $DOCKERHUBPSW" > env.yml'
         sh 'mkdir -p molecule/default/roles'
-        sh 'ln -s `pwd` molecule/default/roles/simple'
+        // Add link if it does not exist
+        sh '[[ -e molecule/default/roles/simple ]] || ln -s `pwd` molecule/default/roles/simple'
       }
     }
     stage ("Executing Molecule lint") {
