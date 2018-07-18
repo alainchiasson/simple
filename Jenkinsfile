@@ -22,7 +22,8 @@ pipeline {
     }
     stage ("Executing Molecule create") {
       steps {
-        withCredentials([UsernamePassword(credentialsId: 'alainchiasson-dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+        withCredentials([UsernamePassword(credentialsId: 'alainchiasson-dockerhub', usernameVariable: 'DOCKERHUBUSR', passwordVariable: 'DOCKERHUBPWD')]) {
+          sh 'echo $DOCKERHUBUSR'
           sh 'sudo molecule create'
         }
       }

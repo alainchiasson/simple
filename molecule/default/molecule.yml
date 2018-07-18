@@ -9,10 +9,11 @@ platforms:
   - name: instance
     image: centos
     pull: true
-      registry:
-        credentials:
-          username: $DOCKER_USERNAME
-          password: $DOCKER_PASSWORD
+    registry:
+      url: registry.hub.docker.com/library
+      credentials:
+        username: $DOCKERHUBUSR
+        password: $DOCKERHUBPWD
 provisioner:
   name: ansible
   lint:
