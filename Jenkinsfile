@@ -47,6 +47,11 @@ pipeline {
         sh 'sudo molecule --env-file env.yml verify'
       }
     }
+    post {
+      always {
+        sh 'rm -f env.yml'
+      }
+    }
   }
 }
 // node() {
