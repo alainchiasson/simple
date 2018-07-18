@@ -5,6 +5,10 @@ pipeline {
     }
   }
 
+  environment {
+    withCredentials([UsernamePassword(credentialsId: 'alainchiasson-dockerhub', usernameVariable: 'DOCKERHUBUSR', passwordVariable: 'DOCKERHUBPWD')]) {
+  }
+
   stages {
     stage ("Print out image env") {
       steps {
