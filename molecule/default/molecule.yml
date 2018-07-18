@@ -12,8 +12,8 @@ platforms:
     registry:
       url: registry.hub.docker.com/library
       credentials:
-        username: $DOCKERHUB_USR
-        password: $DOCKERHUB_PSW
+        username: $DOCKERHUBUSR
+        password: $DOCKERHUBPSW
 provisioner:
   name: ansible
   lint:
