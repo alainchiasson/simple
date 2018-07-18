@@ -1,6 +1,7 @@
 pipeline {
   agent {
     docker {
+      customWorkspace '/tmp/molecule' 
       image 'molecule'
     }
   }
@@ -8,8 +9,7 @@ pipeline {
   stages {
     stage ("Print out image env") {
       steps {
-        // sh 'mkdir $WORKSPACE/default; ln -s $WORKSPACE $WORKSPACE/default/roles'
-        sh 'env'
+        sh 'env; mkdir $WORKSPACE/default; ln -s $WORKSPACE $WORKSPACE/default/roles'
       }
     }
     stage ("Executing Molecule lint") {
