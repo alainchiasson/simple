@@ -1,13 +1,13 @@
 pipeline {
   agent {
     docker {
-      customWorkspace '/tmp/simple'
+      customWorkspace '/home/molecule'
       image 'molecule'
     }
   }
 
   stages {
-    stage ("Create soft link to roles") {
+    stage ("Print out image env") {
       steps {
         // sh 'mkdir $WORKSPACE/default; ln -s $WORKSPACE $WORKSPACE/default/roles'
         sh 'env'
