@@ -6,7 +6,7 @@ pipeline {
   }
 
   environment {
-    DOCKERHUB = credentials(alainchiasson-dockerhub)
+    DOCKERHUB = credentials('alainchiasson-dockerhub')
   }
 
   stages {
