@@ -24,27 +24,27 @@ pipeline {
     }
     stage ("Executing Molecule lint") {
       steps {
-        sh 'sudo molecule --debug lint'
+        sh 'sudo molecule --env-file env.yml --debug lint'
       }
     }
     stage ("Executing Molecule create") {
       steps {
-        sh 'sudo molecule create'
+        sh 'sudo molecule --env-file env.yml create'
       }
     }
     stage ("Executing Molecule converge") {
       steps {
-        sh 'sudo molecule --debug converge'
+        sh 'sudo molecule --env-file env.yml --debug converge'
       }
     }
     stage ("Executing Molecule idemotence") {
       steps {
-        sh 'sudo molecule idempotence'
+        sh 'sudo molecule --env-file env.yml idempotence'
       }
     }
     stage ("Executing Molecule verify") {
       steps {
-        sh 'sudo molecule verify'
+        sh 'sudo molecule --env-file env.yml verify'
       }
     }
   }
