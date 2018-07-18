@@ -6,38 +6,40 @@ pipeline {
   }
 
   stages {
-    stage ("Print out image env") {
-      steps {
-        // Jenkins check out the role into a folder with arbitrary name,
-        // we need to let Ansible know where to find role
-        sh 'env'
-        sh 'mkdir -p molecule/default/roles'
-        sh 'ln -s `pwd` molecule/default/roles/simple'
+    withCredentials([UsernamePassword(credentialsId: 'alainchiasson-dockerhub', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+      stage ("Print out image env") {
+        steps {
+          // Jenkins check out the role into a folder with arbitrary name,
+          // we need to let Ansible know where to find role
+          sh 'env'
+          sh 'mkdir -p molecule/default/roles'
+          sh 'ln -s `pwd` molecule/default/roles/simple'
+        }
       }
-    }
-    stage ("Executing Molecule lint") {
-      steps {
-        sh 'sudo molecule --debug lint'
+      stage ("Executing Molecule lint") {
+        steps {
+          sh 'sudo molecule --debug lint'
+        }
       }
-    }
-    stage ("Executing Molecule create") {
-      steps {
-        sh 'sudo molecule create'
+      stage ("Executing Molecule create") {
+        steps {
+          sh 'sudo molecule create'
+        }
       }
-    }
-    stage ("Executing Molecule converge") {
-      steps {
-        sh 'sudo molecule --debug converge'
+      stage ("Executing Molecule converge") {
+        steps {
+          sh 'sudo molecule --debug converge'
+        }
       }
-    }
-    stage ("Executing Molecule idemotence") {
-      steps {
-        sh 'sudo molecule idempotence'
+      stage ("Executing Molecule idemotence") {
+        steps {
+          sh 'sudo molecule idempotence'
+        }
       }
-    }
-    stage ("Executing Molecule verify") {
-      steps {
-        sh 'sudo molecule verify'
+      stage ("Executing Molecule verify") {
+        steps {
+          sh 'sudo molecule verify'
+        }
       }
     }
   }

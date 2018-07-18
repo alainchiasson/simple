@@ -9,6 +9,10 @@ platforms:
   - name: instance
     image: centos
     pull: true
+      registry:
+        credentials:
+          username: $DOCKER_USERNAME
+          password: $DOCKER_PASSWORD
 provisioner:
   name: ansible
   lint:
