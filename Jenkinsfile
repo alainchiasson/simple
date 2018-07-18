@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'molecule'
+      image 'reth0h/molecule:2.16'
     }
   }
 
