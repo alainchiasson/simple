@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      args "-e ANSIBLE_ROLE_PATH=${WORSPACE}"
+      args "-e ANSIBLE_ROLE_PATH=${WORKSPACE}"
       image 'molecule'
     }
   }
