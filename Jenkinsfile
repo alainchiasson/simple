@@ -1,5 +1,8 @@
 pipeline {
   agent {
+    withEnv {
+      ANSIBLE_ROLES_PATH=env.WORSPACE
+    }
     docker {
       image 'molecule'
     }
