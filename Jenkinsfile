@@ -14,7 +14,7 @@ pipeline {
     }
     stage ("Executing Molecule lint") {
       steps {
-        sh 'sudo molecule lint'
+        sh 'sudo molecule --debug lint'
       }
     }
     stage ("Executing Molecule create") {
