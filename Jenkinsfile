@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      customWorkspace '/home/molecule'
+      args "-e ANSIBLE_ROLE_PATH=${WORSPACE}"
       image 'molecule'
     }
   }
