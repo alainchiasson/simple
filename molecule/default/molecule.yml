@@ -13,8 +13,6 @@ provisioner:
   name: ansible
   lint:
     name: ansible-lint
-  env:
-    ANSIBLE_ROLES_PATH: ../..
 scenario:
   name: default
 verifier:
