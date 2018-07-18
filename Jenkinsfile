@@ -16,33 +16,34 @@ pipeline {
         // Jenkins check out the role into a folder with arbitrary name,
         // we need to let Ansible know where to find role
         sh 'env'
+        sh 'sudo env'
         sh 'mkdir -p molecule/default/roles'
         sh 'ln -s `pwd` molecule/default/roles/simple'
       }
     }
     stage ("Executing Molecule lint") {
       steps {
-        sh 'sudo molecule --debug lint'
+        sh 'molecule --debug lint'
       }
     }
     stage ("Executing Molecule create") {
       steps {
-        sh 'sudo molecule create'
+        sh 'molecule create'
       }
     }
     stage ("Executing Molecule converge") {
       steps {
-        sh 'sudo molecule --debug converge'
+        sh 'molecule --debug converge'
       }
     }
     stage ("Executing Molecule idemotence") {
       steps {
-        sh 'sudo molecule idempotence'
+        sh 'molecule idempotence'
       }
     }
     stage ("Executing Molecule verify") {
       steps {
-        sh 'sudo molecule verify'
+        sh 'molecule verify'
       }
     }
   }
