@@ -1,9 +1,10 @@
 pipeline {
-  agent {
-    docker {
-      image 'retr0h/molecule:2.16'
-    }
-  }
+  agent any
+  // agent {
+  //   docker {
+  //     image 'retr0h/molecule:2.16'
+  //   }
+  // }
 
   environment {
     DOCKERHUBUSR = credentials('dockerhub_usr')
