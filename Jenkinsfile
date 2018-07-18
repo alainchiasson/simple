@@ -24,27 +24,27 @@ pipeline {
     }
     stage ("Executing Molecule lint") {
       steps {
-        sh 'molecule --debug lint'
+        sh 'sudo molecule --debug lint'
       }
     }
     stage ("Executing Molecule create") {
       steps {
-        sh 'molecule create'
+        sh 'sudo molecule create'
       }
     }
     stage ("Executing Molecule converge") {
       steps {
-        sh 'molecule --debug converge'
+        sh 'sudo molecule --debug converge'
       }
     }
     stage ("Executing Molecule idemotence") {
       steps {
-        sh 'molecule idempotence'
+        sh 'sudo molecule idempotence'
       }
     }
     stage ("Executing Molecule verify") {
       steps {
-        sh 'molecule verify'
+        sh 'sudo molecule verify'
       }
     }
   }
