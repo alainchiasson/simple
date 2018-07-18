@@ -6,8 +6,7 @@ pipeline {
   }
 
   environment {
-    withCredentials([UsernamePassword(credentialsId: 'alainchiasson-dockerhub', usernameVariable: 'DOCKERHUBUSR', passwordVariable: 'DOCKERHUBPWD')]) {
-    }
+    DOCKERHUB = credentials(alainchiasson-dockerhub)
   }
 
   stages {
@@ -27,10 +26,7 @@ pipeline {
     }
     stage ("Executing Molecule create") {
       steps {
-        withCredentials([UsernamePassword(credentialsId: 'alainchiasson-dockerhub', usernameVariable: 'DOCKERHUBUSR', passwordVariable: 'DOCKERHUBPWD')]) {
-          sh 'echo $DOCKERHUBUSR'
-          sh 'sudo molecule create'
-        }
+        sh 'sudo molecule create'
       }
     }
     stage ("Executing Molecule converge") {
