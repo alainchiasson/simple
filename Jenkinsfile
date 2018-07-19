@@ -5,7 +5,7 @@ pipeline {
     }
   }
   stages {
-    stage ("Executing Molecule lint") {
+    stage ("Do a full test cycle.") {
       steps {
         sh 'sudo molecule --debug test'
       }
