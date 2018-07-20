@@ -7,7 +7,7 @@ pipeline {
   stages {
     stage ("Do a full test cycle.") {
       steps {
-        sh 'sudo molecule --debug test'
+        sh 'molecule --debug test'
       }
     }
   }
