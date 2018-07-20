@@ -5,9 +5,14 @@ pipeline {
     }
   }
   stages {
-    stage ("Do a full test cycle.") {
+    stage ("create.") {
       steps {
-        sh 'molecule --debug test'
+        sh 'molecule --debug create'
+      }
+    }
+    stage ("converge.") {
+      steps {
+        sh 'molecule --debug converge'
       }
     }
   }
