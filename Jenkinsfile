@@ -16,12 +16,7 @@ pipeline {
     }
     stage ("create.") {
       steps {
-        sh 'molecule --debug create'
-      }
-    }
-    stage ("converge.") {
-      steps {
-        sh 'molecule --debug converge'
+        sh 'molecule --debug test'
       }
     }
   }
