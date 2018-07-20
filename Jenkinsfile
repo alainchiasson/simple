@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'alainchiasson/molecule'
+      image 'alainchiasson/docker-molecule'
     }
   }
   stages {
