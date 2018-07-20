@@ -1,8 +1,5 @@
 ---
 - name: Converge
   hosts: all
-  pre_task:
-    env:
-      MOLECULE_DEBUG: True
   roles:
     - role: simple
