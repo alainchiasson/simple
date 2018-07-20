@@ -8,12 +8,7 @@ lint:
 platforms:
   - name: instance
     image: centos
-    pull: true
-    registry:
-      url: registry.hub.docker.com/library
-      credentials:
-        username: $DOCKERHUBUSR
-        password: $DOCKERHUBPSW
+    pull: false
 provisioner:
   name: ansible
   lint:
